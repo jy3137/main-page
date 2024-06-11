@@ -13,6 +13,12 @@
         .left-img {
             float: left;
             margin-left: 5px;
+            width: auto;
+            height: 105px;
+        }
+        .right-text {
+            float: right;
+            margin-left: 20px;
         }
         .box {
             box-sizing: border-box;
@@ -85,5 +91,75 @@
         </select>
     </fieldset>
     <br>
+    <script>
+        var departments = [
+            {
+                name: '컴퓨터공학과',
+                description: '컴퓨터 시스템과 소프트웨어 개발에 중점을 둔 학과입니다. 학생들은 프로그래밍, 알고리즘, 데이터베이스, 네트워크, 인공지능 등의 다양한 주제를 학습합니다.'
+            },
+            {
+                name: '인공지능학과',
+                description: '인공지능 기술과 그 응용에 대해 배우는 학과입니다. 머신러닝, 딥러닝, 데이터 분석, 자연어 처리 등의 주제를 다룹니다.'
+            },
+            {
+                name: '전기전자제어학부',
+                description: '전기전자 시스템과 제어 공학을 공부하는 학부입니다. 전력 시스템, 전자 회로, 자동 제어, 임베디드 시스템 등에 대해 배우게 됩니다.'
+            },
+            {
+                name: '미래자동차공학과',
+                description: '자동차 공학의 미래를 탐구하는 학과입니다. 자율주행차, 전기차, 하이브리드 자동차 등의 설계와 개발을 중심으로 학습합니다.'
+            },
+            {
+                name: '지능형모빌리티공학과',
+                description: '지능형 모빌리티 기술을 연구하는 학과입니다. 스마트 모빌리티, 교통 시스템, 모빌리티 서비스 등을 포함하여 학습합니다.'
+            },
+            {
+                name: '화학공학부',
+                description: '화학공학부는 화학 공정과 관련된 이론과 실습을 배우는 학과입니다. 학생들은 화학 반응 공학, 열역학, 공정 제어, 재료 과학 등을 학습하여 화학 산업 전반에 걸쳐 필요한 지식을 습득합니다.'
+            }
+        ];
+
+        var deptPrompt = "원하는 학과의 번호를 선택하세요:\n";
+        var i;
+        for (i = 0; i < departments.length; i++) {
+            deptPrompt += (i + 1) + ". " + departments[i].name + "\n";
+        }
+
+        var deptChoice = prompt(deptPrompt);
+        var deptIndex = parseInt(deptChoice) - 1;
+
+        if (deptIndex >= 0 && deptIndex < departments.length) {
+            var selectedDept = departments[deptIndex];
+            document.write("<h3>" + selectedDept.name + "</h3>" + selectedDept.description);
+        } else 
+            alert("1부터 " + departments.length + "까지의 숫자를 입력하세요.");
+            var rice;
+while (true) {
+    rice = prompt("원하는 날짜의 번호를 선택하세요:\n 1. 6/3일\n 2. 6/4일\n 3. 6/5일");
+    if (rice === null) {
+        alert("취소되었습니다.");
+        break; 
+    }
+    if (rice == '1' || rice == '2' || rice == '3') {
+        break;
+    } else {
+        alert("1부터 3까지의 숫자를 입력하세요.");
+    }
+}
+
+if (rice !== null) {
+    switch (rice) {
+        case '1':
+            document.write("<p>6/3일의 식단은<br>닭갈비<br>다시마무국<br>핫도그<br>숙주나물<br>요구르트/김치 입니다. </p>");
+            break;
+        case '2':
+            document.write("<p>6/4일의 식단은<br>근대된장국<br>돈까스<br>새우로제파스타<br>마늘쫑지무침<br>요구르트/깍두기입니다. </p>");
+            break;
+        case '3':
+            document.write("<p>6/5일의 식단은<br>얼큰소고기해장국<br>닭가슴살카레<br>고기왕만두<br>방울토마토<br>마토카프레제<br>쥬시쿨/김치입니다. </p>");
+            break;
+    }
+}
+    </script>
 </body>
 </html>
